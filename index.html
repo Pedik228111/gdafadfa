@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+            width: 100%;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Password Generator</h1>
+        <input id="username" type="text" placeholder="Enter UserId" />
+        <button onclick="generatePassword()">Generate</button>
+        <textarea id="output" readonly></textarea>
+    </div>
+
+    <script>
+        function generatePassword() {
+            var userId = document.getElementById("username").value;
+            if (!userId) {
+                alert("Please enter a UserId");
+                return;
+            }
+
+            // Example: generate a simple password (this could be more complex)
+            var password = btoa(userId + "1234"); // Base64 encoding of username + some salt
+            document.getElementById("output").value = password;
+        }
+    </script>
+</body>
+</html>
